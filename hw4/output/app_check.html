@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campus Customs — App Check</title>
+    <style>
+      :root {
+        --yale-blue: #00356b;
+        --gold: #b9972e;
+        --ink: #0f1f3a;
+        --muted: #4a5568;
+        --border: #dfe3e8;
+        --surface: #f5f5f0;
+      }
+      body {
+        font-family: Verdana, Geneva, sans-serif;
+        color: var(--ink);
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 4rem;
+        line-height: 1.6;
+      }
+      h1,
+      h2 {
+        font-family: 'EB Garamond', Garamond, 'Times New Roman', serif;
+        color: var(--yale-blue);
+      }
+      h1 {
+        font-size: 2.2rem;
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 0.4rem;
+      }
+      .intro {
+        color: var(--muted);
+      }
+      .check {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem 0;
+        background: #fff;
+      }
+      .check h2 {
+        margin-top: 0;
+        border-left: 4px solid var(--yale-blue);
+        padding-left: 0.6rem;
+      }
+      .check img {
+        width: 100%;
+        max-width: 760px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        display: block;
+        margin: 0.75rem 0;
+      }
+      .proves {
+        background: var(--surface);
+        border-left: 4px solid var(--gold);
+        padding: 0.6rem 0.9rem;
+        font-size: 0.95rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Campus Customs — App Check</h1>
+    <p class="intro">
+      Live-site testing for Homework 4. Each check below has a heading, a screenshot from the
+      running app, and a note on what it proves. Screenshots live in
+      <code>app_check_images/</code>.
+    </p>
+
+    <section class="check">
+      <h2>Check 1 — Chat checks real inventory and price</h2>
+      <img src="app_check_images/inventory.png" alt="Chat answering a stock and price question" />
+      <p class="proves">
+        A shopper asked how many <strong>Basic Hoodie Big Yale</strong> are in stock in size M
+        and the price. The assistant answered <strong>5 in size M</strong> and
+        <strong>$68.00</strong> — both read from <code>campus_customs.db</code> by the agent's
+        tools, not guessed. This proves the chatbot gives honest stock and price from the
+        database.
+      </p>
+    </section>
+
+    <section class="check">
+      <h2>Check 2 — Category question loads dynamic product cards</h2>
+      <img
+        src="app_check_images/search_cards.png"
+        alt="Chat showing hoodie cards and the products grid updating"
+      />
+      <p class="proves">
+        Asking <em>"What hoodies do you have?"</em> made the agent search the catalogue and
+        return structured matches. The matching hoodies appear as <strong>product cards in the
+        chat panel</strong> and the <strong>main products grid updates</strong> ("Showing 12
+        results for your chat search"). This proves the chat-driven search renders real results
+        on the page.
+      </p>
+    </section>
+
+    <section class="check">
+      <h2>Check 3 — Usability feature: filter &amp; search on Products</h2>
+      <img
+        src="app_check_images/usability_filter.png"
+        alt="Products page filtered to the Hoodies category"
+      />
+      <p class="proves">
+        One of the Problem 9 usability improvements: the Products page has category buttons and a
+        search box. Selecting <strong>Hoodies</strong> narrows the catalogue to
+        <strong>27 products</strong>, with a live count. This proves shoppers can filter and
+        search the catalogue themselves.
+      </p>
+    </section>
+  </body>
+</html>

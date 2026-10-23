@@ -1,0 +1,5 @@
+# Publish ONLY the hw4 folder to the public repo.
+# Everything else at this level (data/, data.zip, scratch folders) stays local.
+/*
+!/.gitignore
+!/hw4/
