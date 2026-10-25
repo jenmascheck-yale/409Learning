@@ -1,4 +1,0 @@
-https://github.com/jenmascheck-yale/409Learning
-
-HW5 lives in the hw5/ folder of this repo:
-https://github.com/jenmascheck-yale/409Learning/tree/main/hw5
