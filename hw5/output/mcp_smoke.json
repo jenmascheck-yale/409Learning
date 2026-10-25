@@ -1,0 +1,79 @@
+{
+  "note": "Each tool was called through an in-process FastMCP client (fastmcp Client bound to the server object), which exercises the real MCP tool dispatch. The server reads data/campus_customs_new.db, so every output below matches the working database.",
+  "database": "data/campus_customs_new.db",
+  "server": "campus-customs (mcp_server/server.py)",
+  "generated_at": "2026-10-25T14:02:52.199823+00:00",
+  "tests": [
+    {
+      "ticket": "101",
+      "prompt": "Do we have the white Bulldog tee (CC-TEE-WHITE) in size S? How many are in stock?",
+      "tool": "check_stock",
+      "arguments": {
+        "sku": "CC-TEE-WHITE",
+        "size": "S"
+      },
+      "output": {
+        "found": true,
+        "sku": "CC-TEE-WHITE",
+        "name": "Classic Bulldog Tee",
+        "size": "S",
+        "qty": 0,
+        "location": "Aisle B",
+        "in_stock": false
+      }
+    },
+    {
+      "ticket": "102",
+      "prompt": "What are the rent terms on lease 1 - how much is the monthly rent and when is it next due?",
+      "tool": "get_lease",
+      "arguments": {
+        "lease_id": 1
+      },
+      "output": {
+        "found": true,
+        "id": 1,
+        "space_name": "Chapel Street shop",
+        "landlord": "Elm City Properties",
+        "monthly_rent": 2400.0,
+        "next_due": "2026-09-02",
+        "notes": null
+      }
+    },
+    {
+      "ticket": "103",
+      "prompt": "What is our unit cost and list price on the navy hoodie CC-HOOD-NAVY so we can check the margin on a bulk discount?",
+      "tool": "get_pricing",
+      "arguments": {
+        "sku": "CC-HOOD-NAVY"
+      },
+      "output": {
+        "found": true,
+        "sku": "CC-HOOD-NAVY",
+        "unit_cost": 22.0,
+        "list_price": 58.0,
+        "margin": 36.0
+      }
+    },
+    {
+      "ticket": "101 (support)",
+      "prompt": "Which vendor invoices are still open/unpaid? Is there one for vendor 1 (Bulldog Print Co) that would block a reprint?",
+      "tool": "get_open_invoices",
+      "arguments": {
+        "vendor_id": 1
+      },
+      "output": {
+        "count": 1,
+        "invoices": [
+          {
+            "id": 501,
+            "vendor_id": 1,
+            "amount": 840.0,
+            "due_date": "2026-08-28",
+            "status": "open",
+            "description": "Rush reprint CC-TEE-WHITE S"
+          }
+        ]
+      }
+    }
+  ]
+}
